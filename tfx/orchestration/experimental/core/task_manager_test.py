@@ -343,8 +343,8 @@ class TaskManagerE2ETest(test_utils.TfxTest):
       tasks = asptg.AsyncPipelineTaskGenerator(
           m, pipeline_state, self._task_queue.contains_task_id,
           service_jobs.DummyServiceJobManager()).generate()
-    self.assertLen(tasks, 1)
-    self._task = tasks[0]
+    self.assertLen(tasks, 2)
+    self._task = tasks[1]
     self.assertEqual('my_transform', self._task.node_uid.node_id)
     self.assertTrue(os.path.exists(self._task.stateful_working_dir))
     self._output_artifact_uri = self._task.output_artifacts['transform_graph'][
